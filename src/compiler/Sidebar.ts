@@ -6,6 +6,22 @@ export function getSidebar(): Node[] {
 			url: "demo",
 			title: "demo",
 			children: [
+                {
+                    url: "demo/darwins_cathederal",
+                    title: "darwins_cathederal",
+                    children: [
+                        {
+                            url: "demo/darwins_cathederal/chapter_1",
+                            title: "chapter_1",
+                            children: [],
+                        },
+                        {
+                            url: "demo/darwins_cathederal/chapter_2",
+                            title: "chapter_2",
+                            children: [],
+                        },
+                    ],
+                },
 				{
 					url: "demo/paul_graham",
 					title: "paul_graham",
