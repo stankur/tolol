@@ -31,5 +31,5 @@ export function getSidebar(): Node[] {
 		return nodes;
 	}
 
-	return buildSidebar(directoryPath, url);
+    return buildSidebar(directoryPath, url);
 }
