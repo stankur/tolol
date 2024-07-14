@@ -4,7 +4,6 @@
 	import {
 		defaultMarkdownParser,
 		schema,
-		defaultMarkdownSerializer,
 	} from "prosemirror-markdown";
 	import { exampleSetup } from "prosemirror-example-setup";
 	import SummarizationLevel from "$lib/components/DetailLevel/DetailLevel.svelte";
