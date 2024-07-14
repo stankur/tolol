@@ -1,35 +1,46 @@
-import fs from "fs";
-import path from "path";
-import { fileURLToPath } from "url";
-
-import { getBasePath } from "./utils";
 import type { Node } from "$lib/components/Sidebar/SidebarTypes";
 
 export function getSidebar(): Node[] {
-    const __dirname = path.dirname(fileURLToPath(import.meta.url));
-	const directoryPath = path.join(__dirname, "../content");
-	const url = getBasePath();
-
-	function buildSidebar(currentPath: string, currentUrl: string): Node[] {
-		const nodes: Node[] = [];
-		const items = fs.readdirSync(currentPath, { withFileTypes: true });
-
-		for (const item of items) {
-			if (item.isDirectory()) {
-				const node: Node = {
-					url: path.join(currentUrl, item.name),
-					title: item.name,
-					children: buildSidebar(
-						path.join(currentPath, item.name),
-						path.join(currentUrl, item.name)
-					),
-				};
-				nodes.push(node);
-			}
+    return [
+		{
+			url: "demo",
+			title: "demo",
+			children: [
+				{
+					url: "demo/paul_graham",
+					title: "paul_graham",
+					children: [
+						{
+							url: "demo/paul_graham/great_work",
+							title: "great_work",
+							children: [],
+						},
+					],
+				},
+				{
+					url: "demo/reid_hoffman",
+					title: "reid_hoffman",
+					children: [
+						{
+							url: "demo/reid_hoffman/blitzscaling",
+							title: "blitzscaling",
+							children: [
+								{
+									url: "demo/reid_hoffman/blitzscaling/1.what_is_blitscaling",
+									title: "1.what_is_blitscaling",
+									children: [],
+								},
+								{
+									url: "demo/reid_hoffman/blitzscaling/2.business_model_innovation",
+									title: "2.business_model_innovation",
+									children: [],
+								},
+							],
+						},
+					],
+				},
+			],
 		}
+	];
 
-		return nodes;
-	}
-
-    return buildSidebar(directoryPath, url);
 }
